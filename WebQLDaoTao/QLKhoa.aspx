@@ -3,9 +3,49 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2> TRANG QUẢN TRỊ KHOA </h2>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm Môn Học Mới</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5 class="modal-title" id="myModalLabel">Thêm khoa mới</h5>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="txtMaMH" class="col-sm-2 col-form-label">Mã khoa:</label>
+                                        <div class="col-sm-10">
+                                            <asp:TextBox ID="txtMaMH" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="txtTenMH" class="col-sm-2 col-form-label">Tên khoa:</label>
+                                        <div class="col-sm-10">
+                                            <asp:TextBox ID="txtTenMH" runat="server" CssClass="form-control"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <asp:Button ID="btThem" runat="server" Text="Thêm" CssClass="btn btn-info" OnClick="btThem_Click"/>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            </div>
+                            <asp:Label ID="lbThongBao" ForeColor="#cc3300" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                </div>
     <asp:GridView ID="gvKhoa" runat="server" DataSourceID="odsKhoa" CssClass="table table-bordered" AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField DataField="MaKH" HeaderText="Mã Khoa"/>
+            <asp:BoundField DataField="MaKH" HeaderText="Mã Khoa" ReadOnly="true"/>
             <asp:BoundField DataField="TenKH" HeaderText="Tên Khoa"/>
             <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" HeaderText="Chọn tác vụ" ButtonType="Button" />
         </Columns>
