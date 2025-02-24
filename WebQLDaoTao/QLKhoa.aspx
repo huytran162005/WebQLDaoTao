@@ -3,12 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2> TRANG QUẢN TRỊ KHOA </h2>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm Môn Học Mới</button>
-
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm Khoa Mới</button>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -30,7 +28,6 @@
                                         <label for="txtTenMH" class="col-sm-2 col-form-label">Tên khoa:</label>
                                         <div class="col-sm-10">
                                             <asp:TextBox ID="txtTenKH" runat="server" CssClass="form-control"></asp:TextBox>
-
                                         </div>
                                     </div>
                                 </form>
@@ -65,6 +62,7 @@
         <UpdateParameters>
             <asp:Parameter Name="MaKH" Type="String" />
             <asp:Parameter Name="tenkh" Type="String" />
+
         </UpdateParameters>
     </asp:ObjectDataSource>
 <hr />

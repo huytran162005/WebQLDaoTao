@@ -6,11 +6,9 @@
     <h2>QUẢN LÝ MÔN HỌC</h2>
     <hr />
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <h3>DANH SÁCH MÔN HỌC</h3>
-            <div class="container">
-                <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm Môn Học Mới</button>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm Môn Học Mới</button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -57,9 +55,6 @@
                         </div>
                     </div>
                 </div>
-
-
-            </div>
             <asp:GridView CssClass="table table-bordered"
                 ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH"
                 OnRowEditing="gvMonhoc_RowEditing" OnRowDeleting="gvMonhoc_RowDeleting"
