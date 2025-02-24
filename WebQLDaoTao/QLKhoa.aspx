@@ -65,6 +65,7 @@
         <UpdateParameters>
             <asp:Parameter Name="MaKH" Type="String" />
             <asp:Parameter Name="tenkh" Type="String" />
+
         </UpdateParameters>
     </asp:ObjectDataSource>
 <hr />
