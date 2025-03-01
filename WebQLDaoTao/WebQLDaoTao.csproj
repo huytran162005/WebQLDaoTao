@@ -88,6 +88,8 @@
     <Compile Include="Models\KhoaDAO.cs" />
     <Compile Include="Models\MonHoc.cs" />
     <Compile Include="Models\MonHocDAO.cs" />
+    <Compile Include="Models\SinhVien.cs" />
+    <Compile Include="Models\SinhVienDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLDiem.aspx.cs">
       <DependentUpon>QLDiem.aspx</DependentUpon>
