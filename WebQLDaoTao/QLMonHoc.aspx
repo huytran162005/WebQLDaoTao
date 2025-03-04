@@ -61,7 +61,6 @@
                 OnRowUpdating="gvMonhoc_RowUpdating" OnRowCancelingEdit="gvMonhoc_RowCancelingEdit"
                 AllowPaging="true" PageSize="8" OnPageIndexChanging="gvMonhoc_PageIndexChanging">
                 <Columns>
-
                     <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" ReadOnly="True" />
                     <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
                     <asp:BoundField HeaderText="Số tiết" DataField="SoTiet" />
@@ -80,6 +79,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <PagerStyle HorizontalAlign="Center" />
                 <HeaderStyle BackColor="#003399" ForeColor="#ffffff" />
             </asp:GridView>
         </div>

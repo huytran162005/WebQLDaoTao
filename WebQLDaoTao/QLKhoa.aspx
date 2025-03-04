@@ -47,6 +47,7 @@
             <asp:BoundField DataField="TenKH" HeaderText="Tên Khoa"/>
             <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" HeaderText="Chọn tác vụ" ButtonType="Button" />
         </Columns>
+        <HeaderStyle ForeColor="#ffffff" BackColor="#003399" />
     </asp:GridView>
     <asp:ObjectDataSource runat="server" ID="odsKhoa"
         TypeName="WebQLDaoTao.Models.KhoaDAO"

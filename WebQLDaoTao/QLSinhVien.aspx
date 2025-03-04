@@ -49,7 +49,7 @@
                     <div class="form-group row">
                         <label for="txtNgaySinh" class="col-sm-4 col-form-label">Ngày Sinh:</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtNgaySinh" runat="server" CssClass="form-control" TextMode="DateTime"></asp:TextBox>
+                            <asp:TextBox ID="txtNgaySinh" runat="server" CssClass="form-control" TextMode="Date" ></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -68,7 +68,7 @@
                         <label for="txtNgaySinh" class="col-sm-4 col-form-label">Nơi Sinh:</label>
                         <div class="col-sm-8">
                             <asp:DropDownList ID="ddlKhoa" runat="server" 
-                                 DataTextField="tenkh" DataValueField="makh"></asp:DropDownList>
+                                 DataTextField="tenkh" DataValueField="makh" CssClass="form-control"></asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,8 @@
     <asp:GridView ID="gvSinhVien" runat="server"
         AutoGenerateColumns="False" CssClass="table table-hover table-bordered"
         DataSourceID="odsSinhVien"
-        DataKeyNames="MaSV">
+        DataKeyNames="MaSV" 
+        AllowPaging="true" PageSize="5">
         <Columns>
             <asp:BoundField DataField="MaSV" HeaderText="Mã SV" SortExpression="MaSV" ReadOnly="true" />
             <asp:BoundField DataField="HoSV" HeaderText="Họ SV" SortExpression="HoSV" />
@@ -93,16 +94,32 @@
                     <asp:Label ID="lbgioitinh" runat="server"
                         Text='<%# Convert.ToBoolean(Eval("GioiTinh"))==true ? "Nam": "Nữ" %>'></asp:Label>
                 </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:DropDownList ID="ddlphai" runat="server" SelectedValue='<%# Bind("gioitinh") %>'>
+                        <asp:ListItem Text="Nam" Value="True"></asp:ListItem>
+                        <asp:ListItem Text="Nữ" Value="False"></asp:ListItem>
+                    </asp:DropDownList>
+                </EditItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="NgaySinh" HeaderText="Ngày Sinh" SortExpression="NgaySinh" />
             <asp:BoundField DataField="NoiSinh" HeaderText="Nơi Sinh" SortExpression="NoiSinh" />
             <asp:BoundField DataField="DiaChi" HeaderText="Địa Chỉ" SortExpression="DiaChi" />
-            <asp:BoundField DataField="MaKH" HeaderText="Mã KH" SortExpression="MaKH" />
+            <asp:TemplateField HeaderText="Khoa">
+                <ItemTemplate> <%# Eval("makh") %></ItemTemplate>
+                <EditItemTemplate>
+                    <asp:DropDownList 
+                        ID="ddlmakh" runat="server"
+                        DataSourceID="odsKhoa" DataTextField="TenKH"
+                        DataValueField="MaKH"
+                        SelectedValue='<%# Bind("MaKH") %>' ></asp:DropDownList>
+                </EditItemTemplate>
+            </asp:TemplateField>
             <asp:CommandField ShowEditButton="true" EditText="Sửa"
                 ShowDeleteButton="true" DeleteText="Xóa"
                 HeaderText="Chọn chức năng" />
         </Columns>
-        <HeaderStyle ForeColor="White" BackColor="Blue" />
+        <PagerStyle HorizontalAlign="Center" />
+        <HeaderStyle ForeColor="#ffffff" BackColor="#003399" />
     </asp:GridView>
     <asp:ObjectDataSource ID="odsSinhVien" runat="server" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO" UpdateMethod="Update">
         <DeleteParameters>
@@ -129,6 +146,6 @@
             <asp:Parameter Name="makh" Type="String" />
         </UpdateParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="odsKhoa" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsKhoa" runat="server" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.KhoaDAO"></asp:ObjectDataSource>
     <hr />
 </asp:Content>
