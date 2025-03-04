@@ -84,6 +84,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\KetQua.cs" />
+    <Compile Include="Models\KetQuaDAO.cs" />
     <Compile Include="Models\Khoa.cs" />
     <Compile Include="Models\KhoaDAO.cs" />
     <Compile Include="Models\MonHoc.cs" />
