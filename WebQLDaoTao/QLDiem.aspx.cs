@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebQLDaoTao.Models;
-using WebQLDaoTao.Models.WebQLDaoTao.Models;
+
 
 namespace WebQLDaoTao
 {
