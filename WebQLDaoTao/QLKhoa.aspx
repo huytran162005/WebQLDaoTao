@@ -41,13 +41,15 @@
                     </div>
                 </div>
     <asp:GridView ID="gvKhoa" runat="server" DataSourceID="odsKhoa" CssClass="table table-bordered" 
-                  AutoGenerateColumns="False" DataKeyNames="MaKH" OnRowDeleted="gvKhoa_RowDeleted">
+                  AutoGenerateColumns="False" DataKeyNames="MaKH" OnRowDeleted="gvKhoa_RowDeleted"
+                  AllowPaging="true" PageSize="6">
         <Columns>
             <asp:BoundField DataField="MaKH" HeaderText="Mã Khoa" ReadOnly="true"/>
             <asp:BoundField DataField="TenKH" HeaderText="Tên Khoa"/>
             <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" HeaderText="Chọn tác vụ" ButtonType="Button" />
         </Columns>
         <HeaderStyle ForeColor="#ffffff" BackColor="#003399" />
+        <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
     </asp:GridView>
     <asp:ObjectDataSource runat="server" ID="odsKhoa"
         TypeName="WebQLDaoTao.Models.KhoaDAO"

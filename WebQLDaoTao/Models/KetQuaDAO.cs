@@ -49,5 +49,16 @@ namespace WebQLDaoTao.Models
             //3.thuc thi ket qua;
             return cmd.ExecuteNonQuery();
         }
+        public int Delete(int id)
+        {
+            //1.Mo ket noi CSDL
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["QLDaoTao_ConStr"].ConnectionString);
+            conn.Open();
+            //2.tao truy van
+            SqlCommand cmd = new SqlCommand("delete from ketqua where id=@id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            //3.thuc thi ket qua;   
+            return cmd.ExecuteNonQuery();
+        }
     }
 }

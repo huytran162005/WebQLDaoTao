@@ -80,6 +80,8 @@
             </div>
         </div>
     </div>
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
+
     <asp:GridView ID="gvSinhVien" runat="server"
         AutoGenerateColumns="False" CssClass="table table-hover table-bordered"
         DataSourceID="odsSinhVien"
@@ -118,10 +120,10 @@
                 ShowDeleteButton="true" DeleteText="Xóa"
                 HeaderText="Chọn chức năng" />
         </Columns>
-        <PagerStyle HorizontalAlign="Center" />
+        <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
         <HeaderStyle ForeColor="#ffffff" BackColor="#003399" />
     </asp:GridView>
-    <asp:ObjectDataSource ID="odsSinhVien" runat="server" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO" UpdateMethod="Update">
+    <asp:ObjectDataSource ID="odsSinhVien" runat="server" OnDeleted="odsSinhVien_Deleted" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="getAll" TypeName="WebQLDaoTao.Models.SinhVienDAO" UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="masv" Type="String" />
         </DeleteParameters>

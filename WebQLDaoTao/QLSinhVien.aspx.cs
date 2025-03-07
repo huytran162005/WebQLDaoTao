@@ -34,5 +34,17 @@ namespace WebQLDaoTao
                 ddlKhoa.SelectedValue);
             gvSinhVien.DataBind();
         }
+
+        protected void odsSinhVien_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                string errorMessage = e.Exception.InnerException != null ? e.Exception.InnerException.Message : "Lỗi không xác định!";
+                string script = $"alert('{errorMessage}');";
+                ScriptManager.RegisterStartupScript(this, GetType(), "showError", script, true);
+
+                e.ExceptionHandled = true; // Ngăn trang bị crash
+            }
+        }
     }
 }

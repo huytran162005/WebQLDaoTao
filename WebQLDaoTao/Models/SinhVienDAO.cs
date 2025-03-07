@@ -84,18 +84,43 @@ namespace WebQLDaoTao.Models
             return cmd.ExecuteNonQuery();
         }
         //phuong thuc cập nhật thông tin sinh vien vao CSDL
-        public int Delete(string masv)
+        public string Delete(string masv)
         {
-            //1.Mo ket noi CSDL
-            SqlConnection conn = new
-            SqlConnection(ConfigurationManager.ConnectionStrings["QLDaoTao_ConStr"].ConnectionString);
-            conn.Open();
-            //2.tao truy van
-            SqlCommand cmd = new SqlCommand("delete from sinhvien where masv=@masv", conn);
-            cmd.Parameters.AddWithValue("@masv", masv);
-            //3.thuc thi ket qua;
-            return cmd.ExecuteNonQuery();
+            string errorMessage = null;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["QLDaoTao_ConStr"].ConnectionString);
+
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM sinhvien WHERE masv=@masv", conn);
+                cmd.Parameters.AddWithValue("@masv", masv);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected == 0)
+                {
+                    errorMessage = "Không tìm thấy sinh viên để xóa.";
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547) // Lỗi ràng buộc khóa ngoại
+                {
+                    errorMessage = "Không thể xóa sinh viên này vì có dữ liệu liên quan trong bảng khác.";
+                }
+                else
+                {
+                    errorMessage = "Lỗi hệ thống: " + ex.Message;
+                }
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return errorMessage;
         }
+
+
         //.....
     }
 }

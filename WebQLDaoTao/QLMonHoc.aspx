@@ -59,7 +59,7 @@
                 ID="gvMonhoc" runat="server" AutoGenerateColumns="false" DataKeyNames="MaMH"
                 OnRowEditing="gvMonhoc_RowEditing" OnRowDeleting="gvMonhoc_RowDeleting"
                 OnRowUpdating="gvMonhoc_RowUpdating" OnRowCancelingEdit="gvMonhoc_RowCancelingEdit"
-                AllowPaging="true" PageSize="8" OnPageIndexChanging="gvMonhoc_PageIndexChanging">
+                AllowPaging="true" PageSize="6" OnPageIndexChanging="gvMonhoc_PageIndexChanging">
                 <Columns>
                     <asp:BoundField HeaderText="Mã môn học" DataField="MaMH" ReadOnly="True" />
                     <asp:BoundField HeaderText="Tên môn học" DataField="TenMH" />
@@ -79,7 +79,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-                <PagerStyle HorizontalAlign="Center" />
+                <PagerStyle CssClass="pagination-ys" HorizontalAlign="Center" />
                 <HeaderStyle BackColor="#003399" ForeColor="#ffffff" />
             </asp:GridView>
         </div>
