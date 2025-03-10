@@ -38,8 +38,8 @@
                     <asp:CheckBox ID="chkChon" runat="server" CssClass="radio-inline" />
                 </ItemTemplate>
                 <FooterTemplate>
-                    <asp:Button ID="btnChonTC" runat="server" Text="Chọn tất cả" CssClass="btn btn-danger" OnClick="btnChonTC_Click"/>
-                    <asp:Button ID="btXoa" runat="server" Text="Xóa" CssClass="btn btn-danger" OnClick="btXoa_Click" />
+                    <asp:Button ID="btnChonTC" runat="server" Text="Chọn tất cả" CssClass="btn btn-danger" OnClick="btnChonTC_Click"/>
+                    <asp:Button ID="btXoa" runat="server" Text="Xóa" CssClass="btn btn-danger" OnClick="btXoa_Click"/>
                 </FooterTemplate>
             </asp:TemplateField>
         </Columns>
