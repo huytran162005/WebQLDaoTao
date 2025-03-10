@@ -1,8 +1,8 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebQLDaoTao.Site" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebQLDaoTao.Login" %>
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
+        <style>
         .pagination-ys {
             /*display: inline-block;*/
             padding-left: 0;
@@ -103,62 +103,25 @@
             }
         }
     </style>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="Default.aspx">WebDaoTao</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="Default.aspx">Trang chủ</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục
-                            <span class="caret"></span></a>
-
-                        <ul class="dropdown-menu">
-                            <li><a href="QLMonHoc.aspx">Môn học</a></li>
-                            <li><a href="QLKhoa.aspx">Khoa</a></li>
-                            <li><a href="QLSinhVien.aspx">Sinh viên</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="QLDiem.aspx">Quản lý điểm thi</a></li>
-                    </ul>
-                <ul class="nav navbar-nav navbar-right"><li  class="nav navbar-nav navbar-right">
-        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="btLogout_Click">Logout</asp:LinkButton>
-    </li></ul>
-                    
+        <div class="container">
+            <h2 class="alert alert-info">Đăng Nhập</h2>
+            <div class="form-group">
+                <label for="email">Username:</label>
+                <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            
-        </nav>
-        <div class="container-fluid text-center">
-            <div class="row content">
-                <!-- thực đơn bên trái -->
-                <div class="col-sm-2 sidenav text-left">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active">CHỨC NĂNG CHÍNH</a>
-
-                        <a href="QLMonHoc.aspx" class="list-group-item"><span class="glyphicon glyphicon-book"></span>Quản lý môn học</a>
-
-                        <a href="QLKhoa.aspx" class="list-group-item"><span class="glyphicon glyphicon-book"></span>Quản lý khoa</a>
-
-                        <a href="QLSinhVien.aspx" class="list-group-item"><span class="glyphicon glyphicon-user"></span>Quản lý sinh viên</a>
-                        <a href="QLDiem.aspx" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span>Quản lý điểm</a>
-                    </div>
-                </div>
-                <div class="col-sm-10 text-left">
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1"
-                        runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
             </div>
+            <asp:Button ID="btLogin" runat="server" Text="Login" CssClass="btn btn-default" OnClick="btLogin_Click" />
+            <br />
+
+            <br />
+            <asp:Label ID="lbThongBao" runat="server" Text="" CssClass="text-danger"></asp:Label>
         </div>
-        <footer class="container-fluid text-center">
-            <p>Sinh thực hiện: 2321160082-Tra Quoc Huy</p>
-        </footer>
     </form>
 </body>
 </html>
